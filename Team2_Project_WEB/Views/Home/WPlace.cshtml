@@ -1,0 +1,157 @@
+﻿@model IEnumerable<Team2_Project_WEB.Models.ItemVO>
+
+@using Team2_Project_WEB.Models
+
+@{
+    ViewBag.Title = "작업장 가동현황 조회";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+@section css{
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css">
+}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="form-group row col-3" style="margin-bottom: 0px">
+                        <label for="dateRangeSelect" class="col-4 col-form-label">검색 기간 선택</label>
+                        <div class="input-group col-8">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control float-right" id="dateRangeSelect">
+                        </div>
+                        <!-- /.input group -->
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <!-- 목록 -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>제품명</th>
+                                <th>제품코드</th>
+                                <th>거래비율</th>
+                                <th>전월 주문량</th>
+                                <th>전월 주문고객수</th>
+                                <th>당월 주문량</th>
+                                <th>당월 주문고객수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Code</td>
+                                    <td>@(item.Ratio.ToString("0.00")+" %")</td>
+                                    <td>@item.Order_p</td>
+                                    <td>@item.Customer_p</td>
+                                    <td>@item.Order_c</td>
+                                    <td>@item.Customer_c</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+
+        <!-- /목록 -->
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-danger">
+                    <div class="card-header">
+                        <h3 class="card-title">Donut Chart</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="donutChart1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">qwe</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="donutChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <!-- ChartJS -->
+    <script src="~/plugins/chart.js/Chart.min.js"></script>
+    <!-- InputMask -->
+    <script src="~/plugins/moment/moment.min.js"></script>
+    <script src="~/plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script>
+        //Date range picker
+        $('#dateRangeSelect').daterangepicker()
+        //-------------
+        //- DONUT CHART -
+        //-------------
+        // Get context with jQuery - using jQuery's .get() method.
+        var donutChartCanvas1 = $('#donutChart1').get(0).getContext('2d')
+        var donutChartCanvas2 = $('#donutChart2').get(0).getContext('2d')
+        var donutData = {
+            labels: [
+                'Chrome',
+                'IE',
+                'FireFox',
+                'Safari',
+                'Opera',
+                'Navigator',
+            ],
+            datasets: [
+                {
+                    data: [700, 500, 400, 600, 300, 100],
+                    backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+                }
+            ]
+        }
+        var donutOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+        }
+        //Create pie or douhnut chart
+        // You can switch between pie and douhnut using the method below.
+        new Chart(donutChartCanvas1, {
+            type: 'doughnut',
+            data: donutData,
+            options: donutOptions
+        })
+
+        new Chart(donutChartCanvas2, {
+            type: 'doughnut',
+            data: donutData,
+            options: donutOptions
+        })
+    </script>
+}

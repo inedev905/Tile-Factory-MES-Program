@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{914239FF-97DE-47B4-90D7-6F82D0418F67}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Team2_Project_POP</RootNamespace>
+    <AssemblyName>Team2_Project_POP</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ucList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucList.Designer.cs">
+      <DependentUpon>ucList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ucListSelect.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ucListSelect.Designer.cs">
+      <DependentUpon>ucListSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCalcPop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCalcPop.Designer.cs">
+      <DependentUpon>frmCalcPop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNonOperate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNonOperate.Designer.cs">
+      <DependentUpon>frmNonOperate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNonOperateEnroll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNonOperateEnroll.Designer.cs">
+      <DependentUpon>frmNonOperateEnroll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPalette.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPalette.Designer.cs">
+      <DependentUpon>frmPalette.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPerformance.Designer.cs">
+      <DependentUpon>frmPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmParent.Designer.cs">
+      <DependentUpon>frmParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductionList.Designer.cs">
+      <DependentUpon>frmProductionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelect.Designer.cs">
+      <DependentUpon>frmSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PoPService.cs" />
+    <EmbeddedResource Include="Controls\ucList.resx">
+      <DependentUpon>ucList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ucListSelect.resx">
+      <DependentUpon>ucListSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCalcPop.resx">
+      <DependentUpon>frmCalcPop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNonOperate.resx">
+      <DependentUpon>frmNonOperate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNonOperateEnroll.resx">
+      <DependentUpon>frmNonOperateEnroll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPalette.resx">
+      <DependentUpon>frmPalette.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPerformance.resx">
+      <DependentUpon>frmPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmParent.resx">
+      <DependentUpon>frmParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductionList.resx">
+      <DependentUpon>frmProductionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelect.resx">
+      <DependentUpon>frmSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\png %2810%29" />
+    <None Include="Resources\png %2811%29" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-down-5422469.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-up-5422478.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\-.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\- %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-curve-arrow-pointing-left-21112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_grey.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Team2_Project_DAO\Team2_Project_DAO.csproj">
+      <Project>{21001790-0411-401e-82f6-65024ccb14bb}</Project>
+      <Name>Team2_Project_DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Team2_Project_DTO\Team2_Project_DTO.csproj">
+      <Project>{4366b757-e181-427e-9f4a-5e6ae4301955}</Project>
+      <Name>Team2_Project_DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
